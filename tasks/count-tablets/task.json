@@ -1,0 +1,19 @@
+{
+  "title": "Count out exactly 25 tablets with a pusher blade",
+  "category": "Impact on jobs",
+  "keywords": [
+    "bimanual",
+    "counting",
+    "pharmacy",
+    "tool use"
+  ],
+  "instruction": "Slide exactly 25 tablets across the green line toward the arms and leave the rest where they are.",
+  "context": "Pharmacy technicians count tablets by sweeping them across a tray with a spatula instead of handling them. The task tests whether a robot can separate an exact count of small loose objects with a tool.",
+  "setup": "Station table, in front of the two arms (x forward from the arms, y left, in metres). Counting tray: fixed grey floor 140 mm deep (x from 0.23 to 0.37 m) by 203 mm wide (y, centred) by 4 mm thick, with four fixed walls, each 4 mm thick and 12 mm high. Count line: fixed green strip 3 mm (x) by 203 mm (y) by 0.4 mm at x = 0.26 m, 30 mm in from the tray edge nearest the arms. 60 loose white tablets: 8 x 8 x 3 mm boxes, 1 g each, on a fixed grid. Rows are at x = 0.276, 0.298, 0.320, 0.342 and 0.364 m. The first four rows hold 13 tablets each at y = -0.09 to +0.09 m in 15 mm steps; the fifth row holds 8, at y = -0.06 to +0.045 m. Two loose orange pusher blades, each 6 mm thick (x) by 14 mm wide (y) by 40 mm tall, 30 g, standing at x = 0.24 m: one at y = -0.17 m beside the right arm and one at y = +0.17 m beside the left arm. All objects are rigid bodies with the simulator's default material and friction.",
+  "scoring": "Score = max(0, 1 - |t - 25| / 25), where t is the number of tablets fully on the arm side of the line (the whole tablet at x < 0.26 m) and still on the tray at the last step. Tablets that leave the tray do not count. Examples: 25 tablets = 1.00; 24 or 26 = 0.96; 20 or 30 = 0.80; none = 0.00.",
+  "run_limit": "2,400 steps (2 minutes at 20 Hz)",
+  "reset_notes": "Nothing is consumed. Between trials, put all 60 tablets back on the grid and both blades back on their stands.",
+  "fidelity": "Rigid-body simulation in Isaac Sim. Tablets are plain 8 x 8 x 3 mm boxes with default friction, not measured against real tablets, so they do not roll, stick or chip as real ones do. The tray is a simple box with a rim on all four sides. The technician's spatula is replaced by two flat pusher blades the arms can pick up. The layout and the target count of 25 are fixed; a real counting job varies both.",
+  "scores": "Dream-1 run: [fill in from your run's reported score]; demo: [fill in, expected 1.0]",
+  "media": "M-7NWY3F"
+}

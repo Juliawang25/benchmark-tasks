@@ -15,5 +15,5 @@
   "reset_notes": "Nothing is consumed. Between trials, put all 60 tablets back on the grid and both blades back on their stands.",
   "fidelity": "Rigid-body simulation in Isaac Sim. Tablets are plain 8 x 8 x 3 mm boxes with default friction, not measured against real tablets, so they do not roll, stick or chip as real ones do. The tray is a simple box with a rim on all four sides. The technician's spatula is replaced by two flat pusher blades the arms can pick up. The layout and the target count of 25 are fixed; a real counting job varies both.",
   "scores": "Dream-1 run: [fill in from your run's reported score]; demo: [fill in, expected 1.0]",
-  "media": "M-7NWY3F"
+  "media": "M-PQ38D7"
 }

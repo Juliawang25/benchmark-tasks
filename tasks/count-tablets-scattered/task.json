@@ -1,0 +1,19 @@
+{
+  "title": "Count out exactly 25 scattered tablets with a pusher blade",
+  "category": "Impact on jobs",
+  "keywords": [
+    "bimanual",
+    "counting",
+    "pharmacy",
+    "tool use"
+  ],
+  "instruction": "Slide exactly 25 tablets across the green line toward the arms. Leave the other tablets on the tray, on the side of the line they started on.",
+  "context": "Pharmacy technicians count tablets by sweeping them across a tray with a spatula instead of handling them. The task tests whether a robot can separate an exact count from a scatter of small loose objects: each tablet has to be pushed with millimetre-level precision using a tool held in a parallel gripper, without spilling or disturbing the rest.",
+  "setup": "Station table, in front of the two arms (x forward from the arms, y left, in metres). Counting tray: fixed grey floor 140 mm deep (x from 0.23 to 0.37 m) by 203 mm wide (y, centred) by 4 mm thick, with four fixed walls, each 4 mm thick and 12 mm high. Count line: fixed green strip 3 mm (x) by 203 mm (y) by 0.4 mm, centred at x = 0.26 m, 30 mm in from the tray edge nearest the arms. 60 loose white tablets: 8 x 8 x 3 mm boxes, 1 g each, scattered at random positions drawn with a fixed seed, so the starting layout is the same every trial and matches the screenshot. Every tablet starts on the side of the line away from the arms, with its centre between x = 0.2695 and 0.364 m and within 0.0955 m of the tray's centre line in y. No two tablets touch (at least 9.5 mm between centres along x or along y), and two tablets less than 11 mm apart sideways are at least 16 mm apart in x. Two loose orange pusher blades, each 4 mm thick (x) by 10 mm wide (y) by 40 mm tall, 30 g, standing at x = 0.24 m: one at y = -0.17 m beside the right arm and one at y = +0.17 m beside the left arm. All objects are rigid bodies with the simulator's default material and friction.",
+  "scoring": "Score = max(0, 1 - E / 25), where E = |t - 25| + f, measured at the last step. t = tablets on the tray whose centre is on the arm side of the green line's centreline (x < 0.26 m); f = tablets that are off the tray. A tablet is on the tray if its centre is within the tray's 140 x 203 mm footprint and less than 20 mm above the tray floor. Every tablet is in exactly one state at the last step: across the line (counted in t), off the tray (counted in f), or on the tray on its starting side of the line (no penalty). Examples: exactly 25 across and none off the tray = 1.00; 24 or 26 across = 0.96; 25 across plus 3 off the tray = 0.88; 20 or 30 across = 0.80; none across = 0.00.",
+  "run_limit": "2,400 steps (2 minutes at 20 Hz)",
+  "reset_notes": "Nothing is consumed. Between trials, put all 60 tablets back at their starting positions and both blades back on their stands.",
+  "fidelity": "Rigid-body simulation in Isaac Sim. Tablets are plain 8 x 8 x 3 mm boxes with default friction, not measured against real tablets, so they do not roll, stick or chip as real ones do. They start as a sparse random scatter, not a heap, and never touch at the start. The tray is a simple box with a rim on all four sides. The technician's spatula is replaced by two small flat pusher blades the arms can pick up. A tablet counts as across when its centre passes the line, which is more lenient than requiring the whole tablet to clear it. The layout and the target count of 25 are fixed; a real counting job varies both.",
+  "scores": "Dream-1 run: 0.0; demo: 1.0",
+  "media": "M-RGZLTW"
+}
